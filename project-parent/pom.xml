@@ -26,6 +26,7 @@
 		<findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
 		<maven-pmd-plugin.version>3.8</maven-pmd-plugin.version>
 		<jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
+		<owasp-maven-plugin.version>3.0.2</owasp-maven-plugin.version>
 	</properties>
 
 
@@ -180,6 +181,18 @@
 						</execution>
 					</executions>
 				</plugin>
+				<plugin>
+				    <groupId>org.owasp</groupId>
+				    <artifactId>dependency-check-maven</artifactId>
+				    <version>${owasp-maven-plugin.version}</version>
+				    <executions>
+					<execution>
+					    <goals>
+						<goal>check</goal>
+					    </goals>
+					</execution>
+				    </executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -219,6 +232,10 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+			</plugin>			
 		</plugins>
 	</build>
 
